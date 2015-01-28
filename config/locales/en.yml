@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+
+  question:
+    success: "Question and it's options has successfully created"

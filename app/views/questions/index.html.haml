@@ -1,0 +1,11 @@
+%table
+  %thead
+    %th Question Description
+    %th options
+
+  - @questions.each do |q|
+    %tr
+      %td= q.description
+      %td= q.options.collect(&:description).join(", ")
+
+= link_to "New Question", new_question_path

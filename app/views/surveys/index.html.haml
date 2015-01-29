@@ -1,12 +1,17 @@
-%h3
+%h1
   Listing Surveys
 %table
   %tr
     %th Survey Name
     %th Survey Type
+    %th Details
+    %th Edit
+    %th Delete
   - @surveys.each do |survey|
     %tr
       %td= survey.name
       %td= survey.survey_type
-
+      %td= link_to "show", survey_path(survey)
+      %td= link_to "edit", edit_survey_path(survey)
+      %td= link_to "destroy", survey_path(survey.id), method: :delete
 = link_to "New Survey", new_survey_path

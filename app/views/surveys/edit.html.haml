@@ -1,5 +1,19 @@
-%h1 Editing Survey
-= render 'form'
-= link_to 'Show', @survey
-|
-\#{link_to 'Back', surveys_path}
+%p#notice= notice
+= form_for(@survey) do |f|
+  = f.label :name
+  = f.text_field :name
+  %br
+  = f.label :survey_type
+  = f.select :survey_type, Survey::TYPES, include_blank: true
+  %br
+  = f.label :conducted_on
+  = f.text_field :conducted_on
+  %br
+  = f.label :count_people
+  = f.text_field :count_people
+  %br
+  %br
+  .actions
+    = f.submit
+%br
+= link_to 'Home', surveys_path

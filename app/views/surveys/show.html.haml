@@ -1,4 +1,18 @@
 %p#notice= notice
-= link_to 'Edit', edit_survey_path(@survey)
+
+%h2 Survey Name :
+= @survey.name
+
+%h2 Survey Type :
+= @survey.survey_type
+
+%h2 Survey Date :
+= @survey.conducted_on
+
+%h2 Survey People Count :
+= @survey.count_people
+%br
+%br
+= link_to 'Edit', edit_survey_path(@survey.id)
 |
 \#{link_to 'Back', surveys_path}

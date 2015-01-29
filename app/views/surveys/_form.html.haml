@@ -5,6 +5,12 @@
   = f.label :survey_type
   = f.select :survey_type, Survey::TYPES, include_blank: true
   %br
+  = f.label :conducted_on
+  = f.text_field :conducted_on
+  %br
+  = f.label :count_people
+  = f.text_field :count_people
+  %br
   %br
   .actions
     = f.submit

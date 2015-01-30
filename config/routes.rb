@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   resources :surveys do
-    resources :questions do
-      resources :options
-    end
+    resources :questions
   end
-  resources :users
+  resources :options
+  #resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'surveys#index'
   #root 'users#index'
+  #root 'questions#index'
+  #root 'options#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

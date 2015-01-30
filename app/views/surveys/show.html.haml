@@ -1,16 +1,19 @@
 %p#notice= notice
 
-%h2 Survey Name :
+%h3 Survey Name :
 = @survey.name
 
-%h2 Survey Type :
+%h3 Survey Type :
 = @survey.survey_type
 
-%h2 Survey Date :
+%h3 Survey Date :
 = @survey.conducted_on
 
-%h2 Survey People Count :
+%h3 Survey People Count :
 = @survey.count_people
+
+%h3 Survey Questions :
+= link_to 'Questions in Survey', survey_questions_path(@survey.id)
 %br
 %br
 = link_to 'Edit', edit_survey_path(@survey.id)

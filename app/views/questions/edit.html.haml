@@ -1,4 +1,3 @@
-%h3 New Question
 
 = form_for [@survey, @question] do |f|
   = f.label :description
@@ -7,8 +6,9 @@
   = f.fields_for :options do |option_form|
     = option_form.label 'Option'
     = option_form.text_field :description
-  %br
-  %br
+    %br
+    %br
   .actions
     = f.submit
+
 = link_to 'Questions', survey_questions_path(@survey)

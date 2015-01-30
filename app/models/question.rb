@@ -4,5 +4,5 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :options
 
-  validates :description, presence: true
+#  validates :description, presence: true
 end

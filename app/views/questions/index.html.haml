@@ -1,11 +1,15 @@
-%table
-  %thead
-    %th Question Description
-    %th options
+= link_to "Add New Question", new_survey_question_path(@surveys)
 
+%table
+  %tr
+    %th Question Description
+    %th Options
+    %th Edit Question
   - @questions.each do |q|
     %tr
       %td= q.description
       %td= q.options.collect(&:description).join(", ")
+      %td= link_to "Edit Question", edit_survey_question_path(q.survey_id, q)
+      %td= link_to "Destroy", survey_question_path(q.survey.id, q), method: :delete
 
-= link_to "New Question", new_question_path
+= link_to "Home", surveys_path

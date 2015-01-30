@@ -5,11 +5,16 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
-   # @survey.questions.build
+   # 5.times do
+   #   q = @survey.questions.build
+   #   2.times do
+   #     q.options.build
+   #   end
+   # end
   end
 
   def create
-    @survey = Survey.new(survey_params_create)
+    @survey = Survey.new(survey_params)
     if @survey.save
       flash[:notice] = "Survey successfully created"
       redirect_to root_path
@@ -21,6 +26,7 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
+    q = @survey.questions.build
   end
 
   def edit
@@ -29,7 +35,7 @@ class SurveysController < ApplicationController
 
   def update
     @survey = Survey.find(params[:id])
-    if @survey.update_attributes(survey_params_create)
+    if @survey.update_attributes(survey_params)
       flash[:notice] = "Survey successfully updated"
       redirect_to root_path
     else
@@ -50,8 +56,7 @@ class SurveysController < ApplicationController
   end
 
   private
-  def survey_params_create
-    params.require(:survey).permit(:name, :survey_type, :conducted_on, :count_people)
+  def survey_params
+    params.require(:survey).permit(:name, :survey_type, :conducted_on, :count_people, questions_attributes: [:description, options_attributes: [:description]])
   end
-
 end
